@@ -1,2 +1,0 @@
-# Workshop
-Created with CodeSandbox

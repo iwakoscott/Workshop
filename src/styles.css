@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Muli", sans-serif;
+}
+
+.slide-up-enter {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+.slide-up-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: 300ms linear;
+}
+
+.slide-up-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.slide-up-exit-active {
+  opacity: 0;
+  transform: translateY(50%);
+}
