@@ -1,10 +1,14 @@
-import { updateAll, set, mod } from "shades";
+import uuidv4 from "uuid/v4";
+
+function getID() {
+  return uuidv4().replace(/\-/g, "");
+}
 
 function getRandomTime(upperbound) {
   return Math.floor(Math.random() * upperbound);
 }
 
-let recipes = {
+const initialRecipes = {
   a6b5f72f9f234cf998c5542378d38f92: {
     id: "a6b5f72f9f234cf998c5542378d38f92",
     title: "Orange Marmalade",
@@ -15,6 +19,7 @@ let recipes = {
       "6c826e4a0fa442d085959a6ce657fa55": 4,
       b4eb6667cf06483d9e25c6ad4e6c334d: 4
     },
+    comments: [],
     imgURL:
       "https://upload.wikimedia.org/wikipedia/commons/1/14/Orange_marmalade-3.jpg"
   },
@@ -28,12 +33,13 @@ let recipes = {
       b4eb6667cf06483d9e25c6ad4e6c334d: 5,
       "6c826e4a0fa442d085959a6ce657fa55": 5
     },
+    comments: [],
     imgURL:
       "https://www.recipethis.com/wp-content/uploads/Instant-Pot-Strawberry-Jam.jpg.webp"
   }
 };
 
-let users = {
+const initialUsers = {
   "6c826e4a0fa442d085959a6ce657fa55": {
     id: "6c826e4a0fa442d085959a6ce657fa55",
     name: "Paddington",
@@ -51,6 +57,9 @@ let users = {
     }
   }
 };
+
+let recipes = initialRecipes;
+let users = initialUsers;
 
 // ============== READ ==============
 
@@ -88,7 +97,44 @@ export function _fetchUser(id = null) {
 
 export function _saveRating(uid, rid, rating) {
   return new Promise(resolve => {
-    const k = {};
-    console.log(set("8name")("Scott")(k));
+    const recipe = recipes[rid];
+    recipes = {
+      ...recipes,
+      [rid]: {
+        ...recipe,
+        ratings: {
+          ...recipe["ratings"],
+          [uid]: rating
+        }
+      }
+    };
+    setTimeout(() => resolve(recipes[rid]), getRandomTime(1000));
   });
+}
+
+export function _saveComment(uid, rid, message) {
+  const comment = {
+    id: getID(),
+    message,
+    timestamp: Date.now(),
+    uid
+  };
+
+  return new Promise(resolve => {
+    const recipe = recipes[rid];
+    recipes = {
+      ...recipes,
+      [rid]: {
+        ...recipe,
+        comments: recipe.comments.concat([comment])
+      }
+    };
+    setTimeout(() => resolve(comment), getRandomTime(1000));
+  });
+}
+
+// ============== TESTING PURPOSES ==============
+export function resetData() {
+  recipes = initialRecipes;
+  users = initialUsers;
 }
