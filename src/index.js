@@ -2,11 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { withStyles } from "@material-ui/core/styles";
 import "./styles.css";
-import DisplayCard from "./DisplayCard";
-import Paper from "@material-ui/core/Paper";
-import { _saveRating } from "./API";
-import Comments from "./Comments";
-import Instructions from "./Instructions";
+import DisplayCard from "./components/DisplayCard";
+import Comments from "./components/Comments";
+import Instructions from "./components/Instructions";
 
 const data = {
   user: {

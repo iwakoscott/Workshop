@@ -4,7 +4,7 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "./components/Button";
+import Button from "./Button";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
 const styles = () => ({
@@ -71,8 +71,7 @@ class Instructions extends React.Component {
           width: "100%",
           height: "500px",
           overflow: "Scroll"
-        }}
-      >
+        }}>
         <h3>Ingredients</h3>
         <div style={{ padding: ".5rem" }}>
           <h6>What you'll need:</h6>
@@ -81,8 +80,7 @@ class Instructions extends React.Component {
               display: "flex",
               justifyContent: "center",
               alignItems: "center"
-            }}
-          >
+            }}>
             <ul style={{ margin: ".5rem" }}>
               {getIngredients().map(({ name, amount, units }, index) => (
                 <li key={index}>{`${amount} ${units} ${name}`}</li>
@@ -102,8 +100,7 @@ class Instructions extends React.Component {
                     active: this.props.classes.iconActive,
                     completed: this.props.classes.iconComplete
                   }
-                }}
-              >
+                }}>
                 {step}
               </StepLabel>
               <StepContent>
