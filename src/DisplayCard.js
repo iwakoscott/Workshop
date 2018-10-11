@@ -1,9 +1,9 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
 import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
-import IconButton from "@material-ui/core/IconButton";
 import Stars from "./Stars";
 import Proptypes from "prop-types";
 

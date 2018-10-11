@@ -3,7 +3,10 @@ import ReactDOM from "react-dom";
 import { withStyles } from "@material-ui/core/styles";
 import "./styles.css";
 import DisplayCard from "./DisplayCard";
+import Paper from "@material-ui/core/Paper";
 import { _saveRating } from "./API";
+import Comments from "./Comments";
+import Instructions from "./Instructions";
 
 const data = {
   user: {
@@ -20,11 +23,11 @@ const data = {
     ratings: [
       {
         uid: "85eb742cb7664a3895fac3ea6ad5993b",
-        rating: 3
+        rating: 5
       },
       {
         uid: "a16e804a94b94155a0e8c370b83cc92a",
-        rating: 2
+        rating: 1
       }
     ],
     prepTime: 10,
@@ -35,6 +38,7 @@ const data = {
 const styles = () => ({
   deck: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
@@ -47,14 +51,11 @@ function App({ classes }) {
   return (
     <div className={classes.deck}>
       <DisplayCard {...data} />
+      <Instructions />
+      <Comments />
     </div>
   );
 }
-
-const uid = "6c826e4a0fa442d085959a6ce657fa55",
-  rid = "a6b5f72f9f234cf998c5542378d38f92",
-  rating = 5;
-_saveRating(uid, rid, rating);
 
 const StyledApp = withStyles(styles)(App);
 

@@ -36,6 +36,19 @@ const initialRecipes = {
     comments: [],
     imgURL:
       "https://www.recipethis.com/wp-content/uploads/Instant-Pot-Strawberry-Jam.jpg.webp"
+  },
+  "783e349c5c3f4092bca3d03be37ccb07": {
+    id: "783e349c5c3f4092bca3d03be37ccb07",
+    title: "Fig Jam",
+    uid: "33e23836a47d437d85185c1009abcae4",
+    prepTime: 10,
+    cookTime: 30,
+    ratings: {
+      "33e23836a47d437d85185c1009abcae4": 5
+    },
+    comments: [],
+    imgURL:
+      "https://www.thespruceeats.com/thmb/zH86MNh2B2VsxYpSkAEDlDBjJ34=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/homemade-fresh-fig-jam-3057845-Hero1-5b58a50b46e0fb0024bafbd2.jpg"
   }
 };
 
@@ -54,6 +67,15 @@ const initialUsers = {
     avatarURL: "http://keikoiwako.com/static/media/headshot.7c9a9c2f.jpg",
     recipes: {
       "096d073b18c6422b8765289ce4e13863": true
+    }
+  },
+  "33e23836a47d437d85185c1009abcae4": {
+    id: "33e23836a47d437d85185c1009abcae4",
+    name: "Scott",
+    avatarURL:
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-6c8cc.appspot.com/o/profile%2Fprofile.jpg?alt=media&token=58ef0019-57b8-4eb3-a450-e154a01eb8c0",
+    recipes: {
+      "783e349c5c3f4092bca3d03be37ccb07": true
     }
   }
 };
@@ -134,6 +156,7 @@ export function _saveComment(uid, rid, message) {
 }
 
 // ============== TESTING PURPOSES ==============
+
 export function resetData() {
   recipes = initialRecipes;
   users = initialUsers;
